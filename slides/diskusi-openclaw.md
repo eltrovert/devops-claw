@@ -108,21 +108,7 @@ Gateway itu "router"-nya. Agent itu AI-nya. Session itu percakapannya. Udah, seg
 
 # Arsitektur OpenClaw
 
-<div class="diagram">
-  <div class="diagram-row">
-    <div class="box info">User<span class="sub">WhatsApp / Telegram / Slack</span></div>
-    <div class="arrow">→</div>
-    <div class="box">Gateway<span class="sub">port 18789</span></div>
-  </div>
-  <div class="arrow-down">↓</div>
-  <div class="diagram-row">
-    <div class="box success">AI Model<span class="sub">Claude / GPT / Gemini / Ollama</span></div>
-    <div class="arrow">↔</div>
-    <div class="box warning">Agent<span class="sub">memory + orchestrator</span></div>
-    <div class="arrow">↔</div>
-    <div class="box muted">Tool Execution<span class="sub">exec, k8s, aws</span></div>
-  </div>
-</div>
+<img src="../images/slide-architecture.png" style="width:100%; margin: 20px 0;" />
 
 User kirim pesan → Gateway route ke agent → Agent mikir + eksekusi tool → balesin ke user. Yang bikin powerful: agent-nya **inget percakapan sebelumnya**.
 
@@ -435,19 +421,14 @@ AI agent bawa threat model yang beda dari software tradisional. Ada class attack
 
 Attacker mesti bypass semuanya, bukan cuma satu.
 
-<div class="diagram">
-  <div class="diagram-row"><div class="box danger">Layer 6: Organizational Controls<span class="sub">Training, policy, incident response</span></div></div>
-  <div class="arrow-down">↑</div>
-  <div class="diagram-row"><div class="box danger">Layer 5: Audit & Compliance<span class="sub">Full action logging, session recording</span></div></div>
-  <div class="arrow-down">↑</div>
-  <div class="diagram-row"><div class="box warning">Layer 4: Human-in-the-Loop<span class="sub">Elevated mode + exec approval gate</span></div></div>
-  <div class="arrow-down">↑</div>
-  <div class="diagram-row"><div class="box warning">Layer 3: Policy Engine<span class="sub">Tool allow/deny list, skill constraint</span></div></div>
-  <div class="arrow-down">↑</div>
-  <div class="diagram-row"><div class="box info">Layer 2: Execution Sandbox<span class="sub">Container isolation, workspace ACL</span></div></div>
-  <div class="arrow-down">↑</div>
-  <div class="diagram-row"><div class="box success">Layer 1: Identity & Access<span class="sub">Least privilege, scoped credential</span></div></div>
-</div>
+| Layer | Control | Detail |
+|---|---|---|
+| **6** | Organizational | Training, policy, incident response |
+| **5** | Audit & Compliance | Full action logging, session recording |
+| **4** | Human-in-the-Loop | Elevated mode + exec approval gate |
+| **3** | Policy Engine | Tool allow/deny list, skill constraint |
+| **2** | Execution Sandbox | Container isolation, workspace ACL |
+| **1** | Identity & Access | Least privilege, scoped credential |
 
 ---
 
@@ -648,12 +629,28 @@ Gak usah big-bang. Bertahap jauh lebih safe dan gampang di-measure.
 - ClawHub skill marketplace
 
 **Community**
-- Discord / Matrix buat diskusi day-to-day
+- Vibecoding From Cafe - Chapter Jogja
 - DevOps Focus Group (Indonesia)
 
 <div class="callout info">
   <div class="head">Pro Tip</div>
   Urutan baca: Bab 1 → Bab 3 (IaC) → Bab 13 (safety guardrails). Bab 13 paling penting tapi paling sering di-skip.
+</div>
+
+---
+
+<!-- _class: cover -->
+<!-- _paginate: false -->
+
+<div style="display:flex; justify-content:space-around; align-items:flex-start; padding:0 20px;">
+  <div style="text-align:center; width:42%;">
+    <p style="font-size:28px; font-weight:bold; margin:0 0 24px 0;">Join Komunitas</p>
+    <img src="../.local/frame (1).png" style="height:440px; margin:0 auto; display:block;" />
+  </div>
+  <div style="text-align:center; width:42%;">
+    <p style="font-size:28px; font-weight:bold; margin:0 0 24px 0;">Akses Materi</p>
+    <img src="../.local/frame.png" style="height:440px; margin:0 auto; display:block;" />
+  </div>
 </div>
 
 ---
