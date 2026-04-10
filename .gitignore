@@ -1,0 +1,9 @@
+*
+!/*/
+!/*.md
+!/slides/
+!/slides/*.md
+!/slides/*.pdf
+!/ebook/
+!/ebook/devops-claw.pdf
+!.gitignore
